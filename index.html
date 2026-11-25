@@ -11,6 +11,16 @@
 </head>
 <body>
 <div class="wrap">
+  <div class="sync">
+    <span class="status" id="status" data-state="off" role="status">Isi kode sinkron</span>
+    <div class="syncf">
+      <label for="room">Kode sinkron (samakan di kedua HP)</label>
+      <div class="syncrow">
+        <input id="room" type="text" autocomplete="off" autocapitalize="off" spellcheck="false" placeholder="mis. rumah-andi-9x3k7q">
+        <button type="button" id="roomBtn" class="add">Sambungkan</button>
+      </div>
+    </div>
+  </div>
   <header>
     <div>
       <h1 id="bulanLabel">Saldo bulan ini</h1>
@@ -64,6 +74,8 @@
   </div>
 </div>
 
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.57.4/dist/umd/supabase.min.js"></script>
+<script src="config.js"></script>
 <script src="app.js"></script>
 </body>
 </html>

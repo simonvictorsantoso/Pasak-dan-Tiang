@@ -60,3 +60,14 @@ input:focus-visible,select:focus-visible,button:focus-visible{outline:2px solid 
 .item.out .amt{color:var(--out)}
 .del{border:0;background:transparent;color:var(--muted);cursor:pointer;font-size:20px;line-height:1;width:44px;height:44px;border-radius:8px}
 .del:hover{color:var(--out);background:var(--bg)}
+.sync{display:flex;flex-wrap:wrap;align-items:flex-end;gap:12px 16px;background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:12px 14px;margin-bottom:20px}
+.syncf{flex:1;min-width:230px}
+.syncrow{display:flex;gap:8px}
+.syncrow .add{width:auto;padding:0 16px;white-space:nowrap}
+.status{display:inline-flex;align-items:center;gap:8px;font-size:13px;font-weight:700;color:var(--muted);min-height:44px}
+.status::before{content:"";width:10px;height:10px;border-radius:50%;background:var(--muted)}
+.status[data-state="on"]{color:var(--in)}
+.status[data-state="on"]::before{background:var(--in)}
+.status[data-state="err"]{color:var(--out)}
+.status[data-state="err"]::before{background:var(--out)}
+.status[data-state="wait"]::before{background:var(--accent)}

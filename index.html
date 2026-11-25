@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Catatan Keuangan Bulanan</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;700;800&display=swap" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js"></script>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <div>
+      <h1 id="bulanLabel">Saldo bulan ini</h1>
+      <p class="balance" id="saldo">Rp0</p>
+    </div>
+    <div style="min-width:170px">
+      <label for="bulan">Pilih bulan</label>
+      <input type="month" id="bulan">
+    </div>
+  </header>
+
+  <div class="sum">
+    <div><span>Pemasukan</span><b id="sumIn">Rp0</b></div>
+    <div class="out"><span>Pengeluaran</span><b id="sumOut">Rp0</b></div>
+  </div>
+
+  <div class="grid">
+    <section class="panel" aria-labelledby="tTambah">
+      <h2 id="tTambah">Tambah transaksi</h2>
+      <div class="seg" role="group" aria-label="Jenis transaksi">
+        <button type="button" data-type="out" aria-pressed="true">Pengeluaran</button>
+        <button type="button" data-type="in" aria-pressed="false">Pemasukan</button>
+      </div>
+      <div class="f"><label for="jumlah">Jumlah (Rp)</label><input id="jumlah" type="number" inputmode="numeric" min="1" placeholder="50000"></div>
+      <div class="row2 f">
+        <div><label for="kategori">Kategori</label><select id="kategori"></select></div>
+        <div><label for="tanggal">Tanggal</label><input id="tanggal" type="date"></div>
+      </div>
+      <div class="f"><label for="catatan">Catatan (opsional)</label><input id="catatan" type="text" maxlength="60" placeholder="Makan siang"></div>
+      <button class="add" id="simpan" type="button">Simpan transaksi</button>
+      <p class="err" id="err" role="alert"></p>
+    </section>
+
+    <div>
+      <div class="charts">
+        <section class="panel">
+          <h2>Pengeluaran per kategori</h2>
+          <div class="cbox"><canvas id="cPie" role="img" aria-label="Grafik pengeluaran per kategori"></canvas></div>
+          <div class="empty" id="pieEmpty" hidden>Belum ada pengeluaran di bulan ini.</div>
+        </section>
+        <section class="panel">
+          <h2>Pemasukan vs pengeluaran, 6 bulan terakhir</h2>
+          <div class="cbox"><canvas id="cBar" role="img" aria-label="Grafik batang pemasukan dan pengeluaran enam bulan"></canvas></div>
+        </section>
+      </div>
+      <section class="panel list">
+        <h2>Riwayat transaksi</h2>
+        <div id="list"></div>
+      </section>
+    </div>
+  </div>
+</div>
+
+<script src="app.js"></script>
+</body>
+</html>
